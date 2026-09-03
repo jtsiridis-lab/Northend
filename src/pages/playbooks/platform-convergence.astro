@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LayeredArchitectureGraphic from '../../components/LayeredArchitectureGraphic.astro';
+---
+
+<BaseLayout
+  title="Platform Convergence Playbook — North End Technology"
+  description="Collapse fragmented product silos onto one shared infrastructure layer."
+>
+  <section class="playbook-hero section-alt">
+    <div class="wrapper">
+      <p class="eyebrow">Playbook</p>
+      <h1>Platform Convergence</h1>
+      <p>
+        The playbook every other playbook on this site depends on: collapsing
+        fragmented product silos onto a single, shared platform infrastructure.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrapper">
+      <LayeredArchitectureGraphic class="convergence-graphic" />
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrapper playbook-body">
+      <h2>The joint-planning gauntlet</h2>
+      <p>
+        Convergence fails when it's treated as an architecture diagram instead of a
+        planning exercise. It succeeds when every product manager and engineering
+        lead who owns a silo sits through the same joint-planning gauntlet and leaves
+        with a shared roadmap.
+      </p>
+
+      <h2>The convergence sequence</h2>
+      <ul>
+        <li><strong>Map every silo's dependency surface first.</strong> You cannot converge what you haven't fully inventoried — undocumented integrations are where convergence timelines die.</li>
+        <li><strong>Run joint planning as one gauntlet, not sequential meetings.</strong> Put every silo's product and engineering leadership in the same planning cycle so trade-offs are negotiated once, in the open, not renegotiated per team.</li>
+        <li><strong>Design the shared layer for the laggard, not the leader.</strong> The platform's first version should absorb the least mature silo's requirements — it's the one most likely to resist migration otherwise.</li>
+        <li><strong>Migrate on a forcing function.</strong> A shared platform without a decommission date for the old systems becomes a permanent second system to maintain.</li>
+      </ul>
+
+      <h2>Why this is the foundation playbook</h2>
+      <p>
+        EBITDA defense, AI monetization, and NRR acceleration all assume a platform
+        capable of supporting them. Convergence is the prerequisite work — the layer
+        every other initiative is built on top of.
+      </p>
+
+      <div class="playbook-cta">
+        <a href="/#contact" class="btn btn-primary">Discuss this playbook</a>
+        <a href="/#playbooks" class="back-link">&larr; Back to all playbooks</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .convergence-graphic {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+</style>

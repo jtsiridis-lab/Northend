@@ -1,0 +1,137 @@
+---
+const nav = [
+  { label: 'Playbooks', href: '/#playbooks' },
+  { label: 'About', href: '/#about' },
+  { label: 'Contact', href: '/#contact' },
+];
+---
+
+<header class="site-header">
+  <div class="wrapper site-header__inner">
+    <a href="/" class="brand">North End<span>Technology</span></a>
+
+    <nav class="primary-nav" aria-label="Primary">
+      {nav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="auth-actions" data-auth-actions>
+      <a href="#" class="btn btn-outline" data-auth-signin>Sign In</a>
+      <a href="#" class="btn btn-primary" data-auth-subscribe>Subscribe</a>
+      <a href="/account" class="btn btn-outline" data-auth-account hidden>My Account</a>
+      <button type="button" class="btn btn-primary" data-auth-signout hidden>Sign Out</button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-navy);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 76px;
+  }
+
+  .brand {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-white);
+    white-space: nowrap;
+  }
+
+  .brand span {
+    color: var(--color-text-muted);
+    font-weight: 500;
+    margin-left: 6px;
+  }
+
+  .primary-nav {
+    display: flex;
+    gap: 28px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .primary-nav a {
+    color: var(--color-soft-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .primary-nav a:hover {
+    color: var(--color-white);
+  }
+
+  .auth-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .auth-actions .btn {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+
+  .auth-actions .btn-outline {
+    color: var(--color-white);
+    border-color: var(--color-border);
+  }
+
+  .auth-actions .btn-outline:hover {
+    background: var(--color-white);
+    color: var(--color-navy);
+  }
+
+  @media (max-width: 800px) {
+    .primary-nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { resolveAuth0Session, login, signUp, logout } from '../lib/auth0';
+
+  async function initAuthNav() {
+    const signInEl = document.querySelector('[data-auth-signin]');
+    const subscribeEl = document.querySelector('[data-auth-subscribe]');
+    const accountEl = document.querySelector('[data-auth-account]');
+    const signOutEl = document.querySelector('[data-auth-signout]');
+
+    signInEl?.addEventListener('click', (e) => {
+      e.preventDefault();
+      login();
+    });
+    subscribeEl?.addEventListener('click', (e) => {
+      e.preventDefault();
+      signUp();
+    });
+    signOutEl?.addEventListener('click', () => logout());
+
+    try {
+      const { isAuthenticated } = await resolveAuth0Session();
+
+      signInEl?.toggleAttribute('hidden', isAuthenticated);
+      subscribeEl?.toggleAttribute('hidden', isAuthenticated);
+      accountEl?.toggleAttribute('hidden', !isAuthenticated);
+      signOutEl?.toggleAttribute('hidden', !isAuthenticated);
+    } catch (err) {
+      // Auth0 not configured yet (missing env vars) — fail open to the
+      // signed-out state rather than break navigation rendering.
+      console.warn('Auth0 session check skipped:', err);
+    }
+  }
+
+  initAuthNav();
+</script>

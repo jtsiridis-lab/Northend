@@ -1,0 +1,319 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LayeredArchitectureGraphic from '../components/LayeredArchitectureGraphic.astro';
+
+const playbooks = [
+  {
+    slug: 'ebitda-defense',
+    title: 'EBITDA Defense',
+    summary: 'Protect margin through a platform downturn without gutting the roadmap.',
+  },
+  {
+    slug: 'ai-monetization',
+    title: 'AI Monetization',
+    summary: 'Convert AI feature investment into billable, defensible revenue lines.',
+  },
+  {
+    slug: 'nrr-acceleration',
+    title: 'NRR Acceleration',
+    summary: 'Systematically raise net revenue retention across the install base.',
+  },
+  {
+    slug: 'platform-convergence',
+    title: 'Platform Convergence',
+    summary: 'Collapse fragmented product silos onto one shared infrastructure layer.',
+  },
+];
+---
+
+<BaseLayout
+  title="North End Technology — Product & Platform Advisory"
+  description="Operating playbooks for PE-backed software leaders: EBITDA defense, AI monetization, NRR acceleration, and platform convergence."
+>
+  <!-- Hero -->
+  <section class="hero section-dark">
+    <div class="wrapper hero-grid">
+      <div>
+        <p class="eyebrow">Product &amp; Platform Advisory</p>
+        <h1>Stop fighting the architecture.</h1>
+        <p class="hero-lede">
+          North End Technology runs the joint-planning gauntlet that turns fragmented
+          product silos into a single, shared platform — the kind of operational
+          discipline PE sponsors underwrite.
+        </p>
+        <div class="hero-actions">
+          <a href="#playbooks" class="btn btn-primary">View Playbooks</a>
+          <a href="#contact" class="btn btn-outline" data-auth-subscribe-cta>Subscribe</a>
+        </div>
+      </div>
+      <div class="hero-graphic">
+        <LayeredArchitectureGraphic />
+        <p class="hero-graphic-caption">Fragmented silos converging on shared platform infrastructure</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Playbook Matrix -->
+  <section id="playbooks">
+    <div class="wrapper">
+      <p class="eyebrow">Playbooks</p>
+      <h2>Operating playbooks, not slideware</h2>
+      <p class="section-intro">
+        Four repeatable playbooks built for software leadership teams operating under
+        sponsor scrutiny and a fixed hold period.
+      </p>
+
+      <div class="grid grid-4">
+        {playbooks.map((p) => (
+          <a class="card playbook-card" href={`/playbooks/${p.slug}`}>
+            <h3>{p.title}</h3>
+            <p>{p.summary}</p>
+            <span class="playbook-link">Read the playbook &rarr;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section-alt">
+    <div class="wrapper about-grid">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Built by the person who ran the room</h2>
+        <p>
+          North End Technology is led by an operator who has personally directed the
+          joint-planning gauntlet across <strong>30+ product managers</strong> and
+          <strong>100+ engineers</strong>, aligning fragmented roadmaps into a single
+          platform strategy under active PE ownership.
+        </p>
+        <p>
+          That work — reconciling competing product P&amp;Ls, forcing a shared
+          architecture, and defending EBITDA through the transition — is the direct
+          source of every playbook on this site.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="card-dark stat">
+          <p class="stat-number">30+</p>
+          <p class="stat-label">Product managers aligned to one platform roadmap</p>
+        </div>
+        <div class="card-dark stat">
+          <p class="stat-number">100+</p>
+          <p class="stat-label">Engineers coordinated across converging product lines</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / Auth capture -->
+  <section id="subscribe">
+    <div class="wrapper subscribe-panel card">
+      <div>
+        <p class="eyebrow">Newsletter</p>
+        <h2>Get the next playbook first</h2>
+        <p>
+          Creating an account subscribes you to North End Technology's operating
+          notes. No spam — just the playbooks, first.
+        </p>
+      </div>
+      <button type="button" class="btn btn-primary" data-auth-subscribe-form>
+        Create free account
+      </button>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section-dark">
+    <div class="wrapper contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Talk to North End</h2>
+        <p>
+          For advisory engagements, reach us directly and we'll route your message to
+          <a href="mailto:info@northendtechnology.com">info@northendtechnology.com</a>.
+        </p>
+      </div>
+
+      <form
+        class="contact-form card-dark"
+        action={`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_FORM_ID}`}
+        method="POST"
+      >
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="_replyto" required />
+        </label>
+        <label>
+          Message
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <input type="hidden" name="_subject" value="New inquiry from northendtechnology.com" />
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    import { signUp } from '../lib/auth0';
+
+    document.querySelectorAll('[data-auth-subscribe-cta], [data-auth-subscribe-form]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        signUp();
+      });
+    });
+  </script>
+
+  <style>
+    .hero {
+      padding: 120px 0 96px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.4rem);
+      max-width: 14ch;
+    }
+
+    .hero-lede {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      max-width: 46ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .hero-graphic-caption {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+
+    .section-intro {
+      max-width: 60ch;
+      color: var(--color-text-muted-on-light);
+      margin-bottom: 48px;
+    }
+
+    .playbook-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    .playbook-card:hover {
+      border-color: var(--color-navy);
+      transform: translateY(-2px);
+    }
+
+    .playbook-link {
+      margin-top: auto;
+      padding-top: 12px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--color-navy);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-stats {
+      display: grid;
+      gap: 20px;
+    }
+
+    .stat-number {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--color-white);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      color: var(--color-text-muted);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .subscribe-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .subscribe-panel h2 {
+      margin-bottom: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 56px;
+    }
+
+    .contact-grid a {
+      color: var(--color-white);
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .contact-form label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--color-charcoal);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      color: var(--color-white);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+    }
+
+    .contact-form button {
+      align-self: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</BaseLayout>
