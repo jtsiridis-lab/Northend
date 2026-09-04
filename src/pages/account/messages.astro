@@ -1,0 +1,34 @@
+---
+import AccountLayout from '../../layouts/AccountLayout.astro';
+---
+
+<AccountLayout title="Messages & Support — North End Technology">
+  <div data-account-gate class="account-gate">
+    <h1>Sign in to message the team</h1>
+    <p>Messaging is available to signed-in clients only.</p>
+    <button type="button" class="btn btn-primary" data-account-signin>Sign In</button>
+  </div>
+
+  <div data-account-content hidden>
+    <p class="account-demo-note">
+      This form posts to the same inbox as the public contact form — connect a dedicated
+      support inbox or ticketing system to replace it.
+    </p>
+
+    <h1>Messages &amp; Support</h1>
+    <p>Need something from the team? Send a note and your advisor will follow up directly.</p>
+
+    <form
+      class="card account-form"
+      action={`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_FORM_ID}`}
+      method="POST"
+    >
+      <label>
+        Message
+        <textarea name="message" rows="5" required></textarea>
+      </label>
+      <input type="hidden" name="_subject" value="Client portal message" />
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</AccountLayout>

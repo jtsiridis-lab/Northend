@@ -258,3 +258,270 @@ code {
 .back-link:hover {
   color: var(--color-navy);
 }
+
+/* Client account dashboard */
+.account-header {
+  background: var(--color-navy);
+}
+
+.account-nav {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.account-main {
+  padding: 48px 24px 96px;
+}
+
+.account-main section {
+  padding: 0;
+}
+
+.account-main h1 {
+  font-size: 1.6rem;
+}
+
+.account-gate {
+  max-width: 480px;
+  margin: 64px auto;
+  text-align: center;
+}
+
+.account-gate p {
+  color: var(--color-text-muted-on-light);
+}
+
+.account-demo-note {
+  font-size: 0.85rem;
+  color: var(--color-text-muted-on-light);
+  background: var(--color-soft-gray);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin-bottom: 32px;
+}
+
+.status-banner {
+  margin-bottom: 32px;
+}
+
+.status-banner__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-navy);
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+
+.status-banner__chip[data-status='needs-attention'] {
+  border-style: dashed;
+}
+
+.status-banner__chip[data-status='delayed'] {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.status-banner__summary {
+  font-size: 1.05rem;
+  max-width: 65ch;
+}
+
+.status-banner__actions {
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--color-text-muted-on-light);
+  font-size: 0.9rem;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.snapshot-card__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted-on-light);
+  margin-bottom: 8px;
+}
+
+.snapshot-card__value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 4px;
+}
+
+.snapshot-card__meta {
+  font-size: 0.9rem;
+  color: var(--color-text-muted-on-light);
+  margin: 0;
+}
+
+.snapshot-card__meta-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.progress-track {
+  margin-top: 12px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--color-border-light);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-navy);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.action-card__title {
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.action-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted-on-light);
+  margin: 0;
+}
+
+.recent-docs__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.doc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.doc-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: 0.9rem;
+}
+
+.doc-list li:last-child {
+  border-bottom: none;
+}
+
+.doc-list__name {
+  font-weight: 600;
+  color: var(--color-charcoal);
+}
+
+.doc-list__meta {
+  color: var(--color-text-muted-on-light);
+  white-space: nowrap;
+}
+
+.account-footer {
+  border-top: 1px solid var(--color-border-light);
+  padding: 24px 0;
+}
+
+.account-footer__links {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+
+.account-footer__links a {
+  color: var(--color-text-muted-on-light);
+  font-weight: 500;
+}
+
+.account-footer__links a:hover {
+  color: var(--color-navy);
+}
+
+.settings-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 420px;
+  margin-bottom: 24px;
+}
+
+.settings-card__label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted-on-light);
+  margin-bottom: 4px;
+}
+
+.settings-card__value {
+  font-size: 1rem;
+  color: var(--color-charcoal);
+  margin: 0;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+}
+
+.account-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted-on-light);
+}
+
+.account-form textarea {
+  background: var(--color-white);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+.account-form button {
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .snapshot-grid,
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+}

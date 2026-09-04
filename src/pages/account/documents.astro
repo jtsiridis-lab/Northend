@@ -1,0 +1,26 @@
+---
+import AccountLayout from '../../layouts/AccountLayout.astro';
+---
+
+<AccountLayout title="Documents — North End Technology">
+  <div data-account-gate class="account-gate">
+    <h1>Sign in to view your documents</h1>
+    <p>Document access is available to signed-in clients only.</p>
+    <button type="button" class="btn btn-primary" data-account-signin>Sign In</button>
+  </div>
+
+  <div data-account-content hidden>
+    <p class="account-demo-note">
+      Showing sample documents — connect a live data source to replace this content.
+    </p>
+
+    <h1>Document Library</h1>
+    <ul class="doc-list doc-list--full">
+      <li><span class="doc-list__name">Platform Convergence Roadmap.pdf</span><span class="doc-list__meta">PDF · Sept 1, 2026</span></li>
+      <li><span class="doc-list__name">Migration Runbook v2.docx</span><span class="doc-list__meta">DOCX · Aug 28, 2026</span></li>
+      <li><span class="doc-list__name">Q3 Steering Deck.pdf</span><span class="doc-list__meta">PDF · Aug 20, 2026</span></li>
+      <li><span class="doc-list__name">Data Migration Plan v3.pdf</span><span class="doc-list__meta">PDF · Aug 12, 2026</span></li>
+      <li><span class="doc-list__name">Kickoff Summary.pdf</span><span class="doc-list__meta">PDF · Jul 30, 2026</span></li>
+    </ul>
+  </div>
+</AccountLayout>

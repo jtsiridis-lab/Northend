@@ -1,0 +1,45 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const currentPath = Astro.url.pathname;
+
+const items = [
+  { label: 'Home', href: `${base}/account` },
+  { label: 'Documents', href: `${base}/account/documents` },
+  { label: 'Messages / Support', href: `${base}/account/messages` },
+  { label: 'Settings', href: `${base}/account/settings` },
+];
+---
+
+<div class="wrapper account-nav__inner">
+  {items.map((item) => (
+    <a href={item.href} class:list={['account-nav__link', { 'is-active': currentPath === item.href }]}>
+      {item.label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .account-nav__inner {
+    display: flex;
+    gap: 4px;
+  }
+
+  .account-nav__link {
+    padding: 14px 4px;
+    margin-right: 28px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-muted-on-light);
+    border-bottom: 2px solid transparent;
+  }
+
+  .account-nav__link:hover {
+    color: var(--color-navy);
+  }
+
+  .account-nav__link.is-active {
+    color: var(--color-navy);
+    font-weight: 600;
+    border-bottom-color: var(--color-navy);
+  }
+</style>

@@ -1,0 +1,28 @@
+---
+import AccountLayout from '../../layouts/AccountLayout.astro';
+---
+
+<AccountLayout title="Settings — North End Technology">
+  <div data-account-gate class="account-gate">
+    <h1>Sign in to view settings</h1>
+    <p>Account settings are available to signed-in clients only.</p>
+    <button type="button" class="btn btn-primary" data-account-signin>Sign In</button>
+  </div>
+
+  <div data-account-content hidden>
+    <h1 id="profile">Account Settings</h1>
+
+    <div class="card settings-card">
+      <div>
+        <p class="settings-card__label">Name</p>
+        <p data-user-name class="settings-card__value">Client User</p>
+      </div>
+      <div>
+        <p class="settings-card__label">Email</p>
+        <p data-user-email class="settings-card__value">—</p>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-outline" data-account-signout>Sign Out</button>
+  </div>
+</AccountLayout>

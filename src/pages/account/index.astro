@@ -1,0 +1,88 @@
+---
+import AccountLayout from '../../layouts/AccountLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<AccountLayout title="Dashboard — North End Technology">
+  <div data-account-gate class="account-gate">
+    <h1>Sign in to view your dashboard</h1>
+    <p>This engagement dashboard is available to signed-in clients only.</p>
+    <button type="button" class="btn btn-primary" data-account-signin>Sign In</button>
+  </div>
+
+  <div data-account-content hidden>
+    <p class="account-demo-note">
+      Showing sample engagement data — connect a live data source to replace this content.
+    </p>
+
+    <section id="status" class="status-banner card">
+      <div class="status-banner__chip" data-status="on-track">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5" />
+          <path d="M5 8.2 7 10.2 11 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>On Track</span>
+      </div>
+      <p class="status-banner__summary">
+        Integration roadmap is 40% complete. Next review scheduled for Sept 18, 2026.
+      </p>
+      <ul class="status-banner__actions">
+        <li>Review and approve the updated data-migration plan by Sept 10.</li>
+      </ul>
+    </section>
+
+    <section class="snapshot-grid">
+      <div class="card snapshot-card">
+        <p class="snapshot-card__label">Overall Progress</p>
+        <p class="snapshot-card__value">Phase 2 of 4</p>
+        <div class="progress-track"><div class="progress-fill" style="width: 40%"></div></div>
+      </div>
+      <div class="card snapshot-card">
+        <p class="snapshot-card__label">Next Milestone</p>
+        <p class="snapshot-card__value">Executive Steering Review</p>
+        <p class="snapshot-card__meta">Sept 18, 2026</p>
+      </div>
+      <div class="card snapshot-card">
+        <p class="snapshot-card__label">Needs Your Input</p>
+        <p class="snapshot-card__value">2 open items</p>
+        <a href={`${base}/account/messages`} class="snapshot-card__meta-link">Review items &rarr;</a>
+      </div>
+    </section>
+
+    <section class="quick-actions">
+      <a href={`${base}/account/documents`} class="card action-card">
+        <p class="action-card__title">View / Download Latest Deliverables</p>
+        <p class="action-card__desc">Get the current roadmap, runbook, and steering deck.</p>
+      </a>
+      <a href={`${base}/account/messages`} class="card action-card">
+        <p class="action-card__title">Upload Files or Provide Feedback</p>
+        <p class="action-card__desc">Share files or comments directly with the team.</p>
+      </a>
+      <a href={`${base}/account/messages`} class="card action-card">
+        <p class="action-card__title">Message the Team / Request Support</p>
+        <p class="action-card__desc">Reach your advisor for a quick question or escalation.</p>
+      </a>
+    </section>
+
+    <section class="recent-docs">
+      <div class="recent-docs__header">
+        <h2>Recent Documents</h2>
+        <a href={`${base}/account/documents`} class="back-link">Full document library &rarr;</a>
+      </div>
+      <ul class="doc-list">
+        <li><span class="doc-list__name">Platform Convergence Roadmap.pdf</span><span class="doc-list__meta">PDF · Sept 1, 2026</span></li>
+        <li><span class="doc-list__name">Migration Runbook v2.docx</span><span class="doc-list__meta">DOCX · Aug 28, 2026</span></li>
+        <li><span class="doc-list__name">Q3 Steering Deck.pdf</span><span class="doc-list__meta">PDF · Aug 20, 2026</span></li>
+      </ul>
+    </section>
+  </div>
+
+  <footer class="account-footer">
+    <div class="account-footer__links">
+      <a href={`${base}/account/documents`}>Full Document Library</a>
+      <a href={`${base}/account#status`}>Engagement Details / Timeline</a>
+      <a href={`${base}/account/settings`}>Account Settings</a>
+      <a href={`${base}/account/messages`}>Contact Advisor</a>
+    </div>
+  </footer>
+</AccountLayout>
