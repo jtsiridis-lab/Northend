@@ -33,7 +33,7 @@ can inject them at build time:
 | ----------------------------- | ----------------------------------------------- |
 | `PUBLIC_AUTH0_DOMAIN`         | Auth0 tenant domain                             |
 | `PUBLIC_AUTH0_CLIENT_ID`      | Auth0 SPA application client ID                 |
-| `PUBLIC_AUTH0_REDIRECT_URI`   | Callback URL, e.g. `https://northendtechnology.com/` |
+| `PUBLIC_AUTH0_REDIRECT_URI`   | Callback URL, e.g. `https://jtsiridis-lab.github.io/Northend/` |
 | `PUBLIC_FORMSPREE_FORM_ID`    | Formspree form ID                               |
 
 In the Auth0 SPA application settings, add the redirect URI, allowed logout
@@ -52,15 +52,23 @@ Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site
 and publishes `/dist` to GitHub Pages. In the repo's Settings > Pages, set
 the source to **GitHub Actions**.
 
-This repo currently assumes a **custom domain** (`public/CNAME` is set to
-`northendtechnology.com`), so all internal links are root-relative
-(`/playbooks/ebitda-defense`, etc.). If you're deploying as a project page
-instead (`username.github.io/Northend`, no custom domain):
+This repo is currently deployed as a GitHub Pages **project page** at
+`https://jtsiridis-lab.github.io/Northend/` (no custom domain live yet), so
+`astro.config.mjs` sets `base: '/Northend'` and every internal link is built
+from `import.meta.env.BASE_URL` rather than being hardcoded — see
+`Navigation.astro`, `Footer.astro`, `BaseLayout.astro`'s favicon link, and
+each page's playbook/anchor links.
 
-1. Delete `public/CNAME`.
-2. Set `base: '/Northend'` in `astro.config.mjs`.
-3. Prefix internal links with the base path, or use Astro's `base`-aware
-   helpers, so routing resolves correctly.
+Once `northendtechnology.com` DNS is pointed at GitHub Pages, switch to a
+custom domain:
+
+1. In `astro.config.mjs`, set `site: 'https://northendtechnology.com'` and
+   `base: '/'`.
+2. Re-add `public/CNAME` containing `northendtechnology.com`.
+3. Update `PUBLIC_AUTH0_REDIRECT_URI` (and the Auth0 app's allowed
+   callback/logout URLs) to the new domain.
+
+No link changes are needed for that switch — they're all base-aware already.
 
 ## Structure
 

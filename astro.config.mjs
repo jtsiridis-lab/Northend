@@ -1,11 +1,18 @@
 import { defineConfig } from 'astro/config';
 
-// Served at the domain root via GitHub Pages custom domain (public/CNAME).
-// If you instead deploy as a project page (username.github.io/Northend)
-// with no custom domain, set base: '/Northend' below and prefix internal
-// links accordingly, then delete public/CNAME.
+// Currently deployed as a GitHub Pages PROJECT page (no custom domain live
+// yet): https://jtsiridis-lab.github.io/Northend/ — hence base: '/Northend'.
+// All internal links use import.meta.env.BASE_URL so they resolve correctly
+// under that subpath.
+//
+// Once northendtechnology.com DNS is pointed at GitHub Pages, switch to:
+//   site: 'https://northendtechnology.com',
+//   base: '/',
+// and re-add public/CNAME with that domain — internal links need no changes,
+// since they already go through BASE_URL.
 export default defineConfig({
-  site: 'https://northendtechnology.com',
+  site: 'https://jtsiridis-lab.github.io',
+  base: '/Northend',
   output: 'static',
   trailingSlash: 'never',
 });

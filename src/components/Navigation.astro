@@ -1,14 +1,17 @@
 ---
+// import.meta.env.BASE_URL has no guaranteed trailing slash, so strip it
+// and always join with an explicit "/".
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const nav = [
-  { label: 'Playbooks', href: '/#playbooks' },
-  { label: 'About', href: '/#about' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Playbooks', href: `${base}/#playbooks` },
+  { label: 'About', href: `${base}/#about` },
+  { label: 'Contact', href: `${base}/#contact` },
 ];
 ---
 
 <header class="site-header">
   <div class="wrapper site-header__inner">
-    <a href="/" class="brand">North End<span>Technology</span></a>
+    <a href={`${base}/`} class="brand">North End<span>Technology</span></a>
 
     <nav class="primary-nav" aria-label="Primary">
       {nav.map((item) => (
@@ -19,7 +22,7 @@ const nav = [
     <div class="auth-actions" data-auth-actions>
       <a href="#" class="btn btn-outline" data-auth-signin>Sign In</a>
       <a href="#" class="btn btn-primary" data-auth-subscribe>Subscribe</a>
-      <a href="/account" class="btn btn-outline" data-auth-account hidden>My Account</a>
+      <a href={`${base}/account`} class="btn btn-outline" data-auth-account hidden>My Account</a>
       <button type="button" class="btn btn-primary" data-auth-signout hidden>Sign Out</button>
     </div>
   </div>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LayeredArchitectureGraphic from '../../components/LayeredArchitectureGraphic.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout
@@ -50,8 +51,8 @@ import LayeredArchitectureGraphic from '../../components/LayeredArchitectureGrap
       </p>
 
       <div class="playbook-cta">
-        <a href="/#contact" class="btn btn-primary">Discuss this playbook</a>
-        <a href="/#playbooks" class="back-link">&larr; Back to all playbooks</a>
+        <a href={`${base}/#contact`} class="btn btn-primary">Discuss this playbook</a>
+        <a href={`${base}/#playbooks`} class="back-link">&larr; Back to all playbooks</a>
       </div>
     </div>
   </section>

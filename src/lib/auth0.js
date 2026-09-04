@@ -8,7 +8,7 @@ function getAuth0Client() {
       domain: import.meta.env.PUBLIC_AUTH0_DOMAIN,
       clientId: import.meta.env.PUBLIC_AUTH0_CLIENT_ID,
       authorizationParams: {
-        redirect_uri: import.meta.env.PUBLIC_AUTH0_REDIRECT_URI || window.location.origin + '/',
+        redirect_uri: import.meta.env.PUBLIC_AUTH0_REDIRECT_URI || window.location.origin + import.meta.env.BASE_URL,
       },
       cacheLocation: 'localstorage',
       useRefreshTokens: true,
@@ -55,6 +55,6 @@ export async function signUp() {
 export async function logout() {
   const client = await getAuth0Client();
   await client.logout({
-    logoutParams: { returnTo: window.location.origin + '/' },
+    logoutParams: { returnTo: window.location.origin + import.meta.env.BASE_URL },
   });
 }
