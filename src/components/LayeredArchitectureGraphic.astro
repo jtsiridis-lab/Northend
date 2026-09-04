@@ -13,56 +13,61 @@ const { class: className = '' } = Astro.props;
 >
   <title id="layered-graphic-title">Fragmented product silos converging into a single shared platform</title>
 
+  <!-- Self-contained plate: keeps the diagram legible regardless of
+       whether it sits on a dark or light section background. -->
+  <rect x="1" y="1" width="638" height="458" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" />
+
   <!-- Fragmented silo layer -->
-  <g stroke="#94a3b8" stroke-width="1.5" fill="none">
-    <rect x="40" y="36" width="120" height="72" />
-    <rect x="188" y="20" width="120" height="88" />
-    <rect x="336" y="44" width="120" height="64" />
-    <rect x="480" y="28" width="120" height="80" />
+  <g stroke="#475569" stroke-width="2" fill="none">
+    <rect x="40" y="40" width="120" height="76" />
+    <rect x="188" y="22" width="120" height="94" />
+    <rect x="336" y="46" width="120" height="70" />
+    <rect x="480" y="30" width="120" height="86" />
   </g>
-  <g fill="#1e293b">
-    <rect x="52" y="52" width="96" height="6" />
-    <rect x="52" y="66" width="64" height="6" />
-    <rect x="200" y="40" width="96" height="6" />
-    <rect x="200" y="54" width="72" height="6" />
-    <rect x="200" y="68" width="52" height="6" />
-    <rect x="348" y="58" width="96" height="6" />
-    <rect x="348" y="72" width="60" height="6" />
-    <rect x="492" y="46" width="96" height="6" />
-    <rect x="492" y="60" width="80" height="6" />
-    <rect x="492" y="74" width="48" height="6" />
+  <g fill="#0f172a">
+    <rect x="52" y="58" width="96" height="7" />
+    <rect x="52" y="73" width="64" height="7" />
+    <rect x="200" y="42" width="96" height="7" />
+    <rect x="200" y="57" width="72" height="7" />
+    <rect x="200" y="72" width="52" height="7" />
+    <rect x="348" y="62" width="96" height="7" />
+    <rect x="348" y="77" width="60" height="7" />
+    <rect x="492" y="48" width="96" height="7" />
+    <rect x="492" y="63" width="80" height="7" />
+    <rect x="492" y="78" width="48" height="7" />
   </g>
 
   <!-- Convergence lines: sharp, architectural, no curves -->
-  <g stroke="#334155" stroke-width="1.5">
-    <line x1="100" y1="108" x2="220" y2="248" />
-    <line x1="248" y1="108" x2="280" y2="248" />
-    <line x1="396" y1="108" x2="360" y2="248" />
-    <line x1="540" y1="108" x2="420" y2="248" />
+  <g stroke="#334155" stroke-width="2">
+    <line x1="100" y1="116" x2="220" y2="252" />
+    <line x1="248" y1="116" x2="280" y2="252" />
+    <line x1="396" y1="116" x2="360" y2="252" />
+    <line x1="540" y1="116" x2="420" y2="252" />
   </g>
 
   <!-- Shared platform infrastructure -->
-  <rect x="60" y="248" width="520" height="120" fill="#0a192f" stroke="#0a192f" />
-  <g stroke="#334155" stroke-width="1">
-    <line x1="180" y1="248" x2="180" y2="368" />
-    <line x1="320" y1="248" x2="320" y2="368" />
-    <line x1="460" y1="248" x2="460" y2="368" />
+  <rect x="60" y="252" width="520" height="124" fill="#0a192f" />
+  <g stroke="#94a3b8" stroke-width="1" stroke-opacity="0.5">
+    <line x1="180" y1="252" x2="180" y2="376" />
+    <line x1="320" y1="252" x2="320" y2="376" />
+    <line x1="460" y1="252" x2="460" y2="376" />
   </g>
   <g fill="#f8fafc">
-    <rect x="88" y="296" width="60" height="6" />
-    <rect x="212" y="296" width="80" height="6" />
-    <rect x="360" y="296" width="72" height="6" />
-    <rect x="492" y="296" width="60" height="6" />
+    <rect x="88" y="302" width="60" height="7" />
+    <rect x="212" y="302" width="80" height="7" />
+    <rect x="360" y="302" width="72" height="7" />
+    <rect x="492" y="302" width="60" height="7" />
   </g>
 
   <!-- Foundation -->
-  <rect x="20" y="392" width="600" height="10" fill="#000000" />
-  <rect x="20" y="410" width="600" height="4" fill="#94a3b8" />
+  <rect x="20" y="400" width="600" height="12" fill="#000000" />
+  <rect x="20" y="420" width="600" height="4" fill="#334155" />
 </svg>
 
 <style>
   .layered-graphic {
     width: 100%;
     height: auto;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.35));
   }
 </style>
