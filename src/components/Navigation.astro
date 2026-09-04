@@ -21,7 +21,8 @@ const nav = [
 
     <div class="auth-actions" data-auth-actions>
       <a href="#" class="btn btn-outline" data-auth-signin>Sign In</a>
-      <a href="#" class="btn btn-primary" data-auth-subscribe>Subscribe</a>
+      <a href={`${base}/audit-request`} class="btn btn-primary">Request Audit</a>
+      <a href="#" class="btn btn-outline" data-auth-subscribe>Subscribe</a>
       <a href={`${base}/account`} class="btn btn-outline" data-auth-account hidden>My Account</a>
       <button type="button" class="btn btn-primary" data-auth-signout hidden>Sign Out</button>
     </div>

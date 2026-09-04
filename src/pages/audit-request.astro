@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Request a Product & Platform Convergence Audit — North End Technology"
+  description="Tell us where you are in the hold period, the scale of the portfolio, and the operational bottleneck driving the request."
+>
+  <section class="playbook-hero section-alt">
+    <div class="wrapper">
+      <p class="eyebrow">Audit Request</p>
+      <h1>Request a Product &amp; Platform Convergence Audit</h1>
+      <p>
+        Three qualifiers get us to a useful first call: where you are in the hold
+        period, the scale we're dealing with, and the operational bottleneck driving
+        the request.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrapper">
+      <form
+        class="card audit-form"
+        action={`https://formspree.io/f/${import.meta.env.PUBLIC_FORMSPREE_FORM_ID}`}
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="Product & Platform Convergence Audit request" />
+
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+
+        <label>
+          Work Email
+          <input type="email" name="_replyto" required />
+        </label>
+
+        <label>
+          Company / Fund Name
+          <input type="text" name="company" required />
+        </label>
+
+        <label>
+          Where are you in the hold period?
+          <select name="investment_context" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Pre-Close Technical Due Diligence</option>
+            <option>Post-Close Platform Integration</option>
+            <option>Hold-Period Margin Expansion</option>
+            <option>Preparation for Exit/Sale</option>
+          </select>
+        </label>
+
+        <label>
+          Combined Engineering Headcount
+          <select name="engineering_headcount" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Under 50</option>
+            <option>50–150</option>
+            <option>150–300</option>
+            <option>300+</option>
+          </select>
+        </label>
+
+        <label>
+          Primary Bottleneck
+          <select name="primary_bottleneck" required>
+            <option value="" disabled selected>Select one</option>
+            <option>Stalled Product Roadmap</option>
+            <option>Margin/EBITDA Erosion</option>
+            <option>TSA (Transition Service Agreement) Exit Timeline</option>
+            <option>High Churn / Stagnant NRR</option>
+            <option>AI Strategy &amp; Governance</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn btn-primary">Request Audit</button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .audit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 560px;
+  }
+
+  .audit-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted-on-light);
+  }
+
+  .audit-form input,
+  .audit-form select {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+  }
+
+  .audit-form button {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+</style>

@@ -43,7 +43,8 @@ const playbooks = [
           discipline PE sponsors underwrite.
         </p>
         <div class="hero-actions">
-          <a href="#playbooks" class="btn btn-primary">View Playbooks</a>
+          <a href="#playbooks" class="btn btn-outline">View Playbooks</a>
+          <a href={`${base}/audit-request`} class="btn btn-primary">Request a Product &amp; Platform Convergence Audit</a>
           <a href="#contact" class="btn btn-outline" data-auth-subscribe-cta>Subscribe</a>
         </div>
       </div>
@@ -195,6 +196,7 @@ const playbooks = [
 
     .hero-actions {
       display: flex;
+      flex-wrap: wrap;
       gap: 16px;
       margin-top: 8px;
     }

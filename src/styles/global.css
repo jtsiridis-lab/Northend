@@ -150,6 +150,15 @@ section {
   color: var(--color-navy);
 }
 
+.section-dark .btn-primary {
+  background: var(--color-white);
+  color: var(--color-navy);
+}
+
+.section-dark .btn-primary:hover {
+  background: var(--color-soft-gray);
+}
+
 .grid {
   display: grid;
   gap: 32px;
